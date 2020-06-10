@@ -1,0 +1,783 @@
+body {
+	font-family: arial;
+	max-width: 70vw;
+	margin: auto auto;
+	padding: 0 5vw;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+html,
+body {
+	min-width: 30px;
+	width: 100%;
+}
+
+.bg {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+@font-face {
+	font-family: "Bavro";
+	src: url("assets/font/bavro-regular-webfont.eot"); /* IE9 Compat Modes */
+	src: url("assets/font/bavro-regular-webfont.eot")
+			format("embedded-opentype"),
+		/* IE6-IE8 */ url("assets/font/bavro-regular-webfont.woff2")
+			format("woff2"),
+		/* Super Modern Browsers */
+			url("assets/font/bavro-regular-webfont.woff") format("woff"),
+		/* Pretty Modern Browsers */
+			url("assets/font/bavro-regular-webfont.ttf") format("truetype"),
+		/* Safari, Android, iOS */ url("assets/font/bavro-regular-webfont.svg")
+			format("svg"); /* Legacy iOS */
+}
+
+.header {
+	padding: 20px;
+	color: #f1f1f1;
+	max-width: 100%;
+	left: 0;
+	text-align: center;
+	letter-spacing: 5px;
+	font-family: "Bavro", Fallback, monospace;
+	height: 80px;
+	font-size: calc(0.8em + 0.8vw);
+}
+
+h1 {
+	display: inline;
+	text-align: center;
+	padding: 10px;
+	border-radius: 3px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5),
+		inset 5px 5px 8px rgba(0, 0, 0, 0.5);
+	vertical-align: middle;
+}
+
+.logo {
+	max-width: 100px;
+	vertical-align: middle;
+	margin-top: -10px;
+}
+
+/* Page content */
+.content {
+	margin-top: 50px;
+	padding: 50px;
+	align-self: center;
+}
+
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 3;
+}
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+	padding-top: 102px;
+}
+
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 4; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.603); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+	color: rgb(255, 255, 255);
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+/* Modal Header */
+.modal-header {
+	padding: 2px 16px;
+	color: white;
+}
+
+.modal-head {
+	font-size: calc(1.1+1.1vw);
+	letter-spacing: 0.2vw;
+	font-family: "Bavro", Fallback, monospace;
+	text-align: center;
+}
+
+/* Modal Body */
+
+/* Modal Footer */
+.modal-footer {
+	display: flexbox;
+	color: white;
+}
+/* Modal Content */
+.modal-content {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 0;
+	width: 100%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	animation-name: animatetop;
+	animation-duration: 0.4s;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.main {
+	flex-grow: 1;
+}
+.mainBox {
+	margin-top: 1.76vw;
+	margin-bottom: 5.5vw;
+	width: 55vw;
+	height: 3.3vw;
+	max-width: 500px;
+	left: calc(50% - 27.5vw);
+	top: 15%;
+	border-radius: 0.22vw;
+	box-shadow: 0 2.2vw 3.3vw rgba(0, 0, 0, 0.6);
+	border: 0.11vw solid rgba(0, 0, 0, 0.438);
+	padding: 0.22vw;
+	box-sizing: border-box;
+	text-shadow: 0 0.11vw 0.11vw rgba(0, 0, 0, 0.4);
+
+	display: inline-table;
+	vertical-align: middle;
+	transition: box-shadow 0.3s ease;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+	color: white;
+	border: none;
+	padding: 16px 32px;
+	text-decoration: none;
+	width: 100%;
+	letter-spacing: 2px;
+	cursor: pointer;
+	font-size: calc(0.9em+0.9vw);
+	font-family: "Bavro", Fallback, monospace;
+}
+
+#edit,
+#delete {
+	border: 1px solid #ff5a09;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	font-family: monospace;
+	display: inline-block;
+	width: 100%;
+	cursor: pointer;
+}
+
+#delete {
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+#edit {
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+#myBtn {
+	padding: 10px 12px;
+	border: 2px solid #ffffff;
+	color: #ffffff;
+	cursor: pointer;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	text-align: center;
+	text-decoration: none;
+	font-size: 15px;
+	display: inline-block;
+	height: 65px;
+	width: 185px;
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	font-family: monospace;
+	transition: all 0.2s linear;
+	align-items: center;
+}
+
+#myBtn:hover {
+	transition: 1s ease-in-out;
+	transform: scale(1.2);
+}
+#myBtn:hover span {
+	color: #ff6a25;
+}
+
+svg {
+	display: inline;
+	position: absolute;
+	left: -1px;
+	top: -14px;
+	fill: none;
+	stroke: #ff3419;
+	stroke-dasharray: 150 480;
+	stroke-dashoffset: 150;
+	transition: 1s ease-in-out;
+}
+.border2 {
+	display: none;
+}
+
+#myBtn:hover svg {
+	stroke-dashoffset: -480;
+}
+
+#myBtn span {
+	color: white;
+	font-size: 20px;
+	font-weight: 100;
+}
+.fa {
+	margin-right: 20px;
+	animation-name: animate ease-in-out;
+}
+
+.plus {
+	height: 30px;
+	margin-left: -150px;
+	margin-top: 5px;
+}
+
+.add {
+	margin-top: -43px;
+	margin-left: 35px;
+	display: block;
+}
+
+@keyframes animate {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	width: 95%;
+	padding: 12px;
+	border-radius: 4px;
+	box-sizing: border-box;
+	resize: vertical;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+/* Style the label to display next to the inputs */
+label {
+	font-size: calc(0.8em + 0.8vw);
+	font-family: Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	padding: 12px 12px 12px 0;
+	margin-left: 6px;
+	display: inline-block;
+}
+/* Floating column for labels: 25% width */
+.col-25 {
+	float: left;
+	width: 25%;
+	margin-top: 6px;
+}
+
+/* Floating column for inputs: 75% width */
+.col-75 {
+	float: left;
+	width: 75%;
+	margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 750px) {
+	.col-25,
+	.col-75,
+	input[type="submit"] {
+		width: 100%;
+		margin-top: 0;
+	}
+	.header {
+		height: 50px;
+	}
+
+	h1 {
+		padding: 10px;
+		border-radius: 7px;
+	}
+
+	.logo {
+		max-width: 70px;
+	}
+}
+/* Add Animation */
+@keyframes animatetop {
+	from {
+		top: -300px;
+		opacity: 0;
+	}
+	to {
+		top: 0;
+		opacity: 1;
+	}
+}
+
+thead {
+	display: none;
+}
+tr {
+	display: block;
+	margin-bottom: 2rem;
+	padding: 1rem 0.5rem 0.5rem 1rem;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	box-shadow: 0 0 1rem black;
+	animation-name: animatetop;
+	animation-duration: 0.7s;
+	position: relative;
+	border-radius: 5px;
+}
+
+td {
+	display: inline-block;
+	margin: 0 0.5rem 0.5rem 0;
+	padding: 0.42rem;
+	text-align: center;
+	font-family: monospace;
+	font-size: 1.2em;
+}
+
+td:nth-child(2):before {
+	content: "Name: ";
+}
+
+td:nth-child(1):before {
+	content: "RollNo.: ";
+}
+td:nth-child(3):before {
+	content: "Gender: ";
+}
+td:nth-child(4):before {
+	content: "Standard: ";
+}
+td:nth-child(5):before {
+	content: "DOB: ";
+}
+td:before {
+	float: left;
+	margin: -0.5rem 0.5rem -0.5rem -0.5rem;
+	padding: 0.625rem 0.5rem 0.625rem;
+	font-size: 1.3em;
+	font-family: monospace;
+	content: attr(data-label) ": ";
+	color: #ffffff;
+}
+
+td:nth-child(6):before {
+	margin: 0 0 0 0;
+	padding: 0 0 0;
+	background: #ff707e;
+	content: "";
+}
+
+td:nth-child(6) {
+	position: absolute;
+	bottom: -30px;
+	padding: 0%;
+	background: #ff707e;
+	border: 1px solid #e62739;
+	width: 100px;
+	border-radius: 10px;
+}
+
+/* Responsive layout - when the screen is less than __px wide, make the two columns stack on top of each other instead of next to each other */
+/*@media screen and (max-width: 1200px) {
+	td:nth-child(6) {
+		position: absolute;
+		left: 500px;
+	}
+}*/
+
+#dt {
+	text-indent: -500px;
+	height: 25px;
+	width: 200px;
+}
+
+.icon {
+	max-width: 20px;
+	position: relative;
+	margin-left: -5px;
+	margin-top: 6px;
+}
+
+.editdel {
+	position: relative;
+	margin-left: 10px;
+}
+
+::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	font-size: calc(0.5em + 0.5vw+0.5vh);
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	opacity: 1;
+}
+
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	font-size: calc(0.5em + 0.5vw+0.5vh);
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+::-ms-input-placeholder {
+	/* Microsoft Edge */
+	font-size: calc(0.5em + 0.5vw+0.5vh);
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.validation-error {
+	font-family: "Courier New", Courier, monospace;
+	padding: 0 1em 0 1em;
+}
+
+.theme-box {
+	display: inline;
+	font-size: calc(0.8em + 0.8vw);
+}
+#theme-toggle {
+	display: inline;
+	position: absolute;
+	margin-top: 60px;
+	margin-left: -3.4em;
+	font-size: 20px;
+}
+
+.l,
+.l:before,
+.l:after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.l {
+	background-color: rgba(0, 0, 0, 0.7);
+	border-radius: 1.5em;
+	box-shadow: 0.25em 0.25em 0 0.25em rgba(0, 0, 0, 0.3) inset;
+	color: #fdea7b;
+	display: inline-flex;
+	align-items: center;
+	margin: auto;
+	padding: 0.3em;
+	margin-left: 3em;
+	margin-top: -1em;
+	width: 6em;
+	height: 3em;
+	transition: background-color 0.1s 0.3s ease-out,
+		box-shadow 0.1s 0.3s ease-out;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	cursor: pointer;
+}
+.l:before,
+.l:after {
+	content: "";
+	display: block;
+}
+.l:before {
+	background-color: #d7d7d7;
+	border-radius: 50%;
+	width: 2.4em;
+	height: 2.4em;
+	transition: background-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+	z-index: 1;
+}
+.l:after {
+	background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.15) 0) 0 50% /
+			50% 100%,
+		repeating-linear-gradient(
+				90deg,
+				#bbb 0,
+				#bbb,
+				#bbb 20%,
+				#999 20%,
+				#999 40%
+			)
+			0 50% / 50% 100%,
+		radial-gradient(circle at 50% 50%, #888 25%, transparent 26%);
+	background-repeat: no-repeat;
+	border: 0.25em solid transparent;
+	border-left: 0.4em solid #d8d8d8;
+	border-right: 0 solid transparent;
+	transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+	transform: translateX(-22.5%);
+	transform-origin: 25% 50%;
+	width: 2.4em;
+	height: 2em;
+}
+/* Checked */
+.l:checked {
+	background-color: rgba(0, 0, 0, 0.45);
+	box-shadow: 0.25em 0.25em 0 0.25em rgba(0, 0, 0, 0.1) inset;
+}
+.l:checked:before {
+	background-color: currentColor;
+	transform: translateX(125%);
+}
+.l:checked:after {
+	border-left-color: currentColor;
+	transform: translateX(-2.5%) rotateY(180deg);
+}
+/* Other States */
+.l:focus {
+	outline: 0;
+}
+
+@media screen and (max-width: 750px) {
+	#theme-toggle {
+		position: absolute;
+		margin-top: 40px;
+		margin-left: -3.4em;
+		font-size: 16px;
+	}
+
+	.l {
+		border-radius: 1em;
+		box-shadow: 0.16em 0.16em 0 0.16em rgba(0, 0, 0, 0.3) inset;
+		padding: 0.2em;
+		margin-left: 0.6em;
+		margin-top: -0.6em;
+		width: 4em;
+		height: 2em;
+	}
+
+	.l:before {
+		width: 1.6em;
+		height: 1.6em;
+	}
+	.l:after {
+		border: 0.16em solid transparent;
+		border-left: 0.26em solid #d8d8d8;
+
+		width: 1.6em;
+		height: 1.3em;
+	}
+}
+
+/*making the webpage mobile-friendly*/
+@media screen and (max-width: 500px) {
+	#theme-toggle {
+		display: none;
+	}
+
+	.l {
+		position: absolute;
+		right: 60px;
+		border-radius: 1em;
+		box-shadow: 0.16em 0.16em 0 0.16em rgba(0, 0, 0, 0.3) inset;
+		padding: 0.2em;
+		margin-left: 0.6em;
+		margin-top: 0.5em;
+		width: 4em;
+		height: 2em;
+	}
+
+	.l:before {
+		width: 1.6em;
+		height: 1.6em;
+	}
+	.l:after {
+		border: 0.16em solid transparent;
+		border-left: 0.26em solid #d8d8d8;
+
+		width: 1.6em;
+		height: 1.3em;
+	}
+
+	.header {
+		padding: 20px;
+		max-width: 100%;
+		min-width: 300px;
+		left: 0;
+		text-align: center;
+		letter-spacing: 5px;
+		height: 30px;
+	}
+
+	h1 {
+		font-size: calc(0.8em + 0.8vw);
+		padding: 5px;
+		box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5),
+			inset 2px 2px 4px rgba(0, 0, 0, 0.5);
+		position: absolute;
+		display: inline-block;
+		width: 120px;
+		left: 70px;
+		top: 0;
+	}
+
+	.logo {
+		max-width: 4em;
+		vertical-align: middle;
+		position: absolute;
+		left: 100px;
+		margin-top: -15px;
+		margin-left: -100px;
+	}
+
+	/* Page content */
+	.content {
+		margin-top: 30px;
+		padding: 20px;
+	}
+
+	.sticky + .content {
+		padding-top: 90px;
+	}
+
+	.mainBox {
+		margin-top: 1.2vw;
+		margin-bottom: 5.5vw;
+		width: 90%;
+		margin-left: 5%;
+		margin-right: 5%;
+		height: 3.3vw;
+		left: 0;
+		top: 10%;
+	}
+
+	input[type="text"],
+	input[type="number"],
+	input[type="date"],
+	select,
+	textarea {
+		margin-top: 2px;
+		margin-bottom: 2px;
+		padding: 6px;
+	}
+
+	/* Style the label to display next to the inputs */
+	label {
+		font-size: calc(0.7em + 0.7vw);
+		padding: 6px 6px 6px 0;
+	}
+
+	/* Floating column for labels: 25% width */
+	.col-25 {
+		margin-top: 2px;
+	}
+
+	/* Floating column for inputs: 75% width */
+	.col-75 {
+		margin-top: 2px;
+	}
+
+	tr {
+		display: grid;
+		margin-bottom: 3.5rem;
+		width: 60vw;
+		min-width: 180px;
+		padding: 1rem 0.5rem 0.5rem 1rem;
+	}
+
+	td {
+		font-size: 1.1em;
+	}
+
+	td:before {
+		float: left;
+		margin: -0.5rem 0.5rem -0.5rem -0.5rem;
+		padding: 0.625rem 0.5rem 0.625rem;
+		font-size: 1.1em;
+	}
+
+	td:nth-child(6) {
+		position: absolute;
+		bottom: -60px;
+		right: -60px;
+	}
+	.border1 {
+		display: none;
+	}
+	.border2 {
+		display: inline;
+	}
+	.add {
+		display: none;
+	}
+	#myBtn {
+		height: 65px;
+		width: 65px;
+		position: fixed;
+	}
+	svg {
+		left: -2px;
+		top: -14px;
+	}
+	.plus {
+		height: 30px;
+		margin-left: -25px;
+		margin-top: 5px;
+	}
+}

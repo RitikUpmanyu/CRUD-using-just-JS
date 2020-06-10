@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!--light theme css (will get changed when theme is dark)-->
+		<link rel="stylesheet" id="theme" href="style-light.css" />
+		<!--Common css for both themes-->
+		<link rel="stylesheet" href="common.css" />
+	</head>
+
+	<body>
+		<div class="header sticky bg" id="myHeader">
+			<img class="logo" src="assets/logo.png" />
+			<h1 class="bg">STUDENTS LIST</h1>
+			<!--Theme Toggle Button-->
+			<div class="theme-box">
+				<input
+					class="l"
+					id="theme-toggle-check"
+					type="checkbox"
+					checked
+				/>
+				<span id="theme-toggle">Dark</span>
+			</div>
+		</div>
+		<div class="content">
+			<!-- The Modal -->
+			<div id="myModal" class="modal main">
+				<!-- Modal content -->
+				<div class="modal-content mainBox mainBlurred mainTinted bg">
+					<div class="modal-header">
+						<span class="close">&times;</span>
+						<h2 class="modal-head">Add Student</h2>
+					</div>
+					<div class="modal-body">
+						<form
+							onsubmit="event.preventDefault();onFormSubmit();"
+							autocomplete="off"
+						>
+							<div class="error" id="emptyValidationError"></div>
+							<div class="row">
+								<div class="col-25">
+									<label>RollNo:</label>
+								</div>
+								<div
+									class="validation-error"
+									id="rollNoValidationError"
+								></div>
+								<div class="col-75 bg">
+									<input
+										type="number"
+										name="rollNumber"
+										id="rollNo"
+										placeholder="6-digit rollNo."
+									/>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-25">
+									<label>Name:</label>
+								</div>
+								<div
+									class="validation-error"
+									id="nameValidationError"
+								></div>
+								<div class="col-75 bg">
+									<input
+										type="text"
+										name="Name"
+										id="name"
+										placeholder="Only alphabets"
+									/>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-25">
+									<label>Gender:</label>
+								</div>
+								<div class="col-75 bg">
+									<select id="gender" name="gender">
+										<option value="female">Female</option>
+										<option value="male">Male</option>
+										<option value="other">Other</option>
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-25">
+									<label>Standard:</label>
+								</div>
+								<div
+									class="validation-error"
+									id="standardValidationError"
+								></div>
+								<div class="col-75 bg">
+									<input
+										type="text"
+										name="Standard"
+										id="standard"
+										placeholder="In Roman Numerals"
+									/>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-25">
+									<label>DOB:</label>
+								</div>
+								<div
+									class="validation-error"
+									id="dateValidationError"
+								></div>
+								<div class="col-75 bg">
+									<input
+										type="date"
+										id="dt"
+										onchange="mydate1();"
+									/>
+									<input
+										type="text"
+										id="DOB"
+										onclick="mydate();"
+										hidden
+									/>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<input type="submit" value="Submit" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!-- The List-->
+			<td>
+				<table class="list" id="studentsList">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+			</td>
+		</div>
+		<!-- Trigger/Open The Modal Button -->
+		<button id="myBtn" class="bg">
+			<!--For animation-->
+			<svg
+				width="195x"
+				height="90px"
+				viewBox="0 0 195 70"
+				class="border1"
+			>
+				<polyline
+					points="194,1 194,69 1,69 1,1 194,1"
+					class="bg-line"
+				/>
+				<polyline
+					points="194,1 194,69 1,69 1,1 194,1"
+					class="hl-line"
+				/>
+			</svg>
+			<svg width="90px" height="90px" viewBox="0 0 90 70" class="border2">
+				<polyline points="69",1 69,69 1,69 1,1 69,1" class="bg-line" />
+				<polyline points="69,1 69,69 1,69 1,1 69,1" class="hl-line" />
+			</svg>
+			<i class="fa"></i>
+			<img class="plus" src="assets/plus.png" />
+			<div class="add">
+				<span>
+					Add Student
+				</span>
+			</div>
+		</button>
+		<!--Include Javascript file-->
+		<script src="script.js"></script>
+	</body>
+</html>

@@ -1,0 +1,124 @@
+body {
+	background-image: url("assets/back-dark.jpg");
+}
+
+.header {
+	background: url(assets/back-blur3-dark.jpg);
+}
+
+h1 {
+	border: 2px solid #e97c00;
+	background: url(assets/back-dark.jpg);
+}
+
+#theme-toggle {
+	color: #fefefe;
+}
+
+/* Modal Header */
+.modal-header {
+	background-color: rgb(104, 34, 16);
+}
+
+.modal-footer {
+	background-color: rgb(104, 34, 16);
+}
+
+/* Modal Content */
+.modal-content {
+	border: 1px solid rgb(255, 255, 255);
+}
+
+.mainBlurred {
+	background: url("assets/back-blur-dark.jpg");
+}
+.mainTinted {
+	background-image: linear-gradient(
+			0deg,
+			rgba(0, 0, 0, 0.404),
+			rgba(0, 0, 0, 0.404)
+		),
+		url("assets/back-blur-dark.jpg");
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+	background-color: rgb(104, 34, 16);
+}
+
+#edit,
+#delete {
+	background-color: #000000;
+}
+
+#myBtn {
+	background-image: url("assets/back-blur-dark.jpg");
+}
+
+#myBtn:hover {
+	background: #000000;
+	border: 1px solid #ff6a25;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+	color: #f1f1f1;
+	border: 1px solid rgb(0, 0, 0);
+	background: url("assets/back-blur3-dark.jpg");
+}
+input[type="date"] {
+	color: white;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+	filter: invert(100%);
+}
+
+option {
+	background-color: #000000;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 750px) {
+	h1 {
+		border: 1px solid #e97c00;
+		box-shadow: 2px 2px 2px #3b3b3b;
+	}
+}
+
+tr {
+	background: url("assets/back-blur2-dark.jpg");
+}
+
+td {
+	background-color: #802d15;
+	color: #f1f1f1;
+	border: 1px solid #000000;
+}
+
+td:before {
+	background: #000000;
+}
+
+::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #ff5100;
+}
+
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: rgb(255, 81, 0);
+}
+
+::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: rgb(255, 81, 0);
+}
+
+.validation-error {
+	color: white;
+}

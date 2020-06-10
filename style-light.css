@@ -1,0 +1,112 @@
+body {
+	background-image: url("assets/back.jpg");
+}
+
+.header {
+	background: url(assets/back-blur3.jpg);
+}
+
+h1 {
+	border: 2px solid #ffa500;
+	background: url(assets/back.jpg);
+}
+
+#theme-toggle {
+	color: #000000;
+}
+
+/* Modal Header */
+.modal-header {
+	background-color: rgb(255, 95, 47);
+}
+
+/* Modal Footer */
+.modal-footer {
+	background-color: rgb(255, 95, 47);
+}
+
+/* Modal Content */
+.modal-content {
+	border: 1px solid #888;
+}
+
+.mainBlurred {
+	background: url("assets/back-blur.jpg");
+}
+.mainTinted {
+	background-image: linear-gradient(
+			0deg,
+			rgba(0, 0, 0, 0.404),
+			rgba(0, 0, 0, 0.404)
+		),
+		url("assets/back-blur.jpg");
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+	background-color: rgb(255, 95, 47);
+}
+
+#edit,
+#delete {
+	background-color: #393939;
+}
+
+#myBtn {
+	background-image: url("assets/back-blur.jpg");
+}
+
+#myBtn:hover {
+	background: #ffffff;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+	border: 1px solid #ccc;
+	background: url("assets/back-blur3.jpg");
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 750px) {
+	h1 {
+		border: 1px solid #ffa500;
+		box-shadow: 2px 2px 2px #828282;
+	}
+}
+
+tr {
+	background: url("assets/back-blur2.jpg");
+}
+
+td {
+	background-color: #ffffff;
+	border: 1px solid #ff6c29;
+}
+
+td:before {
+	background: #ff6c29;
+	color: #ffffff;
+}
+
+::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: rgb(126, 59, 28);
+}
+
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: rgb(126, 59, 28);
+}
+
+::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: rgb(126, 59, 28);
+}
+
+.validation-error {
+	color: #eeff00;
+}
